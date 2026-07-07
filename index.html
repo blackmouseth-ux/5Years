@@ -477,8 +477,7 @@
         <p>Web Portal คิวงานละเอียด</p>
       </div>
 
-      <button class="nav-btn active" data-section="dashboard"><span>🏠</span>ภาพรวมงาน</button>
-      <button class="nav-btn" data-section="timeline"><span>🕒</span>คิวงานละเอียด</button>
+      <button class="nav-btn active" data-section="timeline"><span>🕒</span>คิวงานละเอียด</button>
       <button class="nav-btn" data-section="table"><span>📋</span>ตาราง Run Sheet</button>
       <button class="nav-btn" data-section="checklist"><span>✅</span>Checklist สิ่งที่ต้องเตรียม</button>
     </aside>
@@ -503,18 +502,7 @@
         <button class="btn" onclick="window.print()">พิมพ์ / Save PDF</button>
       </div>
 
-      <section id="dashboard" class="section active">
-        <div class="stats">
-          <div class="stat"><small>ช่วงเวลางาน</small><strong>10.00–12.00</strong></div>
-          <div class="stat"><small>จำนวนช่วงคิวหลัก</small><strong id="statSlots">0</strong></div>
-          <div class="stat"><small>พิธีสำคัญ</small><strong>2</strong></div>
-          <div class="stat"><small>ทีมงานในคิว</small><strong id="statOwners">0</strong></div>
-        </div>
-
-        <div class="grid" id="dashboardCards"></div>
-      </section>
-
-      <section id="timeline" class="section">
+      <section id="timeline" class="section active">
         <div class="grid" id="timelineCards"></div>
       </section>
 
@@ -679,32 +667,6 @@
       return items.map(x => `<span class="pill">${x}</span>`).join("");
     }
 
-    function renderDashboard(data) {
-      const keyItems = data.slice(0, 4);
-      document.getElementById("dashboardCards").innerHTML = keyItems.map(item => `
-        <article class="timeline-card">
-          <div>
-            <div class="time">${item.time}</div>
-          </div>
-          <div>
-            <span class="badge">${item.type}</span>
-            <h3>${item.title}</h3>
-            <div class="desc">${item.script}</div>
-            <div class="meta">
-              <div class="meta-box">
-                <div class="label">สิ่งที่ต้องเตรียม / บทบาททีมงาน</div>
-                <div class="value">${item.prepare.length ? item.prepare.join("\\n") : "-"}</div>
-              </div>
-              <div class="meta-box">
-                <div class="label">ผู้รับผิดชอบ</div>
-                <div class="value">${item.owners.length ? item.owners.join(", ") : "-"}</div>
-              </div>
-            </div>
-          </div>
-        </article>
-      `).join("");
-    }
-
     function renderTimeline(data) {
       document.getElementById("timelineCards").innerHTML = data.map(item => `
         <article class="timeline-card">
@@ -769,7 +731,6 @@
 
     function renderAll() {
       const data = getFilteredData();
-      renderDashboard(data);
       renderTimeline(data);
       renderTable(data);
       renderChecklist();
