@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRP MID-YEAR HIGHLIGHTS 2026 | Web Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --navy: #10284c;
+      --navy2: #173c73;
+      --blue: #1f6feb;
+      --gold: #d7a945;
+      --text: #1f2937;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Prompt", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(215,169,69,.18), transparent 28rem),
+        linear-gradient(135deg, #f8fbff 0%, #eef4fb 48%, #f6f2e7 100%);
+      color: var(--text);
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+    }
+
+    aside {
+      background: linear-gradient(180deg, var(--navy) 0%, #06162e 100%);
+      color: white;
+      padding: 26px 22px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      margin-bottom: 18px;
+    }
+
+    .brand .logo {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--gold), #fff1b8);
+      color: var(--navy);
+      font-size: 22px;
+      font-weight: 800;
+      box-shadow: 0 14px 35px rgba(215,169,69,.25);
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      line-height: 1.35;
+      margin: 8px 0 0;
+      letter-spacing: .2px;
+    }
+
+    .brand p {
+      margin: 0;
+      color: rgba(255,255,255,.68);
+      font-size: 13px;
+    }
+
+    .nav-btn {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,.78);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 14px;
+      border-radius: 16px;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 8px;
+      transition: .2s;
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+      background: rgba(255,255,255,.12);
+      color: #fff;
+    }
+
+    .nav-btn span:first-child {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.12);
+      border-radius: 12px;
+    }
+
+    main {
+      padding: 28px;
+      overflow: hidden;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(16,40,76,.96), rgba(23,60,115,.92)),
+        radial-gradient(circle at top right, rgba(215,169,69,.4), transparent 24rem);
+      color: #fff;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(215,169,69,.28), transparent 70%);
+      top: -120px;
+      right: -80px;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #f8e7b2;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -.5px;
+    }
+
+    .hero p {
+      margin: 12px 0 0;
+      color: rgba(255,255,255,.78);
+      max-width: 920px;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 22px 0;
+      align-items: center;
+    }
+
+    .search { flex: 1 1 280px; }
+
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      box-shadow: 0 8px 20px rgba(15,23,42,.04);
+    }
+
+    input:focus, select:focus {
+      border-color: rgba(31,111,235,.5);
+      box-shadow: 0 0 0 4px rgba(31,111,235,.09);
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 16px;
+      padding: 14px 18px;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 10px 24px rgba(16,40,76,.18);
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: var(--navy);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 22px 0;
+    }
+
+    .stat {
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.06);
+    }
+
+    .stat small { color: var(--muted); font-size: 13px; }
+
+    .stat strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 26px;
+      color: var(--navy);
+    }
+
+    .section {
+      display: none;
+      animation: fade .25s ease;
+    }
+
+    .section.active { display: block; }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .grid { display: grid; gap: 16px; }
+
+    .timeline-card {
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--gold), var(--blue));
+    }
+
+    .time {
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 17px;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      background: rgba(215,169,69,.18);
+      margin-bottom: 10px;
+    }
+
+    .timeline-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .desc {
+      line-height: 1.75;
+      white-space: pre-line;
+      color: #334155;
+      font-size: 14px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .meta-box {
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      padding: 14px;
+    }
+
+    .meta-box .label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .meta-box .value {
+      white-space: pre-line;
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px rgba(15,23,42,.06);
+      background: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--navy);
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    tr:hover td { background: #fbfdff; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(31,111,235,.09);
+      color: var(--blue);
+      margin: 2px 4px 2px 0;
+    }
+
+    .check-grid, .owner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .check-card, .owner-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.06);
+    }
+
+    .check-card h3, .owner-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .owner-card h3 { margin-bottom: 2px; }
+
+    .owner-card p {
+      color: var(--muted);
+      margin: 4px 0 14px;
+      font-size: 13px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-top: 1px dashed var(--line);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .check-item input { width: auto; box-shadow: none; }
+
+    .owner-task {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 11px 12px;
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .print-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1000px) {
+      .app { grid-template-columns: 1fr; }
+      aside { position: relative; height: auto; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .timeline-card { grid-template-columns: 1fr; }
+      .check-grid, .owner-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      main { padding: 16px; }
+      .hero { padding: 22px; border-radius: 24px; }
+      .stats { grid-template-columns: 1fr; }
+      .meta { grid-template-columns: 1fr; }
+      aside { padding: 18px 14px; }
+    }
+
+    @media print {
+      aside, .toolbar, .btn { display: none !important; }
+      .app { display: block; }
+      body { background: #fff; }
+      main { padding: 0; }
+      .hero { box-shadow: none; border-radius: 0; }
+      .section { display: block !important; page-break-before: always; }
+      .timeline-card, .stat, .check-card, .owner-card, .table-wrap { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <aside>
+      <div class="brand">
+        <div class="logo">TRP</div>
+        <h1>TRP MID-YEAR<br>HIGHLIGHTS 2026</h1>
+        <p>Web Portal คิวงานละเอียด</p>
+      </div>
+
+      <button class="nav-btn active" data-section="dashboard"><span>🏠</span>ภาพรวมงาน</button>
+      <button class="nav-btn" data-section="timeline"><span>🕒</span>คิวงานละเอียด</button>
+      <button class="nav-btn" data-section="table"><span>📋</span>ตาราง Run Sheet</button>
+      <button class="nav-btn" data-section="checklist"><span>✅</span>Checklist สิ่งที่ต้องเตรียม</button>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div class="eyebrow">✨ Together We Grow</div>
+          <h2>คิวละเอียดงาน TRP MID-YEAR HIGHLIGHTS 2026</h2>
+          <p>
+            Portal สำหรับทีมงานใช้ดูคิวงานแบบละเอียด แยกเวลา กิจกรรม สิ่งที่ต้องเตรียม และผู้รับผิดชอบ
+            เพื่อให้รันงานช่วง C-Level Talk, พิธีมอบรางวัลอายุงาน 5 ปี และพิธีมอบทุนการศึกษาเป็นไปอย่างเรียบร้อย
+          </p>
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="ค้นหาเวลา / กิจกรรม / ผู้รับผิดชอบ / สิ่งที่ต้องเตรียม..." />
+        </div>
+        <button class="btn secondary" onclick="resetFilters()">ล้างตัวกรอง</button>
+        <button class="btn" onclick="window.print()">พิมพ์ / Save PDF</button>
+      </div>
+
+      <section id="dashboard" class="section active">
+        <div class="stats">
+          <div class="stat"><small>ช่วงเวลางาน</small><strong>10.00–12.00</strong></div>
+          <div class="stat"><small>จำนวนช่วงคิวหลัก</small><strong id="statSlots">0</strong></div>
+          <div class="stat"><small>พิธีสำคัญ</small><strong>2</strong></div>
+          <div class="stat"><small>ทีมงานในคิว</small><strong id="statOwners">0</strong></div>
+        </div>
+
+        <div class="grid" id="dashboardCards"></div>
+      </section>
+
+      <section id="timeline" class="section">
+        <div class="grid" id="timelineCards"></div>
+      </section>
+
+      <section id="table" class="section">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 150px;">เวลา</th>
+                <th>กิจกรรม / Script</th>
+                <th style="width: 330px;">สิ่งที่ต้องเตรียม / บทบาททีมงาน</th>
+              </tr>
+            </thead>
+            <tbody id="runSheetBody"></tbody>
+          </table>
+        </div>
+        <div class="print-note">หมายเหตุ: กดปุ่ม “พิมพ์ / Save PDF” เพื่อบันทึกคิวงานเป็น PDF ได้</div>
+      </section>
+
+      <section id="checklist" class="section">
+        <div class="check-grid" id="checklistGrid"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const runSheet = [
+      {
+        time: "10.00 - 10.30 น.",
+        title: "ช่วงที่ 1: เปิดงาน / กล่าวต้อนรับก่อนเริ่มกิจกรรม",
+        type: "กิจกรรม Kahoot",
+        script: `กิจกรรมนี้คือ “กิจกรรม รู้หรือไม่!!” ผ่าน Kahoot
+
+ขอเรียนเชิญ พี่หน่อย และ พี่หญิง ให้เกียรติขึ้นบนเวที เพื่อมอบรางวัลให้แก่ผู้ชนะกิจกรรม Kahoot`,
+        prepare: ["Kahoot", "หมอนรางวัล"],
+        owners: ["กราส"]
+      },
+      {
+        time: "10.30 - 10.50 น.",
+        title: "C-Level Talk: คุณนพรัตน์ บุญจริง",
+        type: "C-Level Talk",
+        script: `เริ่ม C-Level Talk
+
+เชิญ พี่หน่อย คุณนพรัตน์ บุญจริง
+
+ภาพรวมธุรกิจ
+พร้อมอัปเดตสถานการณ์ด้านการเงินของ TRP
+รวมถึงทิศทางขององค์กรในครึ่งปีหลัง
+เรื่องสำคัญที่อยากฝากถึงพนักงานทุกท่าน
+ว่าสิ่งใดคือสิ่งที่พวกเราควรโฟกัส`,
+        prepare: ["น้องเท็นเท็น และน้องกราส - พิธีกร", "ลูกหนู - ดูภาพรวม / ตากล้อง"],
+        owners: ["น้องเท็นเท็น", "น้องกราส", "ลูกหนู"]
+      },
+      {
+        time: "10.50 - 11.10 น.",
+        title: "C-Level Talk: คุณรักชนก มีทรัพย์",
+        type: "C-Level Talk",
+        script: `เชิญ พี่หญิง คุณรักชนก มีทรัพย์
+
+สรุปถึงกิจกรรม การอบรมต่าง ๆ ที่ผ่านมา
+รวมถึงกิจกรรม การอบรมสำคัญที่กำลังจะเกิดขึ้นในอนาคต
+เพื่อสร้างการมีส่วนร่วมและความผูกพันของพนักงานในองค์กรค่ะ
+รวมถึงสิ่งที่พนักงานควรโฟกัส
+และสิ่งที่พี่หญิงอยากฝากถึงทุกท่าน`,
+        prepare: ["VDO กิจกรรม", "Training Roadmap"],
+        owners: ["ลูกหนู"]
+      },
+      {
+        time: "11.10 - 11.15 น.",
+        title: "เปิด VDO พิธีมอบรางวัลและทุนการศึกษา",
+        type: "Transition / VDO",
+        script: `พิธีมอบรางวัลประกาศเกียรติคุณและเชิดชูเกียรติพนักงานผู้มีอายุงาน 5 ปี ประจำปี 2568
+และพิธีมอบทุนการศึกษาแก่บุตรพนักงานค่ะ
+
+เปิด VDO`,
+        prepare: ["VDO เปิดงานรางวัล", "เสียง"],
+        owners: ["ทัศ"]
+      },
+      {
+        time: "11.15 - 11.30 น.",
+        title: "พิธีมอบรางวัลอายุงานครบ 5 ปี ประจำปี 2568",
+        type: "พิธีมอบรางวัล",
+        script: `เชิญ พี่หน่อย คุณนพรัตน์ บุญจริง CCO
+เป็นผู้มอบรางวัลแก่พนักงานผู้มีอายุงานครบ 5 ปี
+
+เชิญพนักงานรับรางวัลอายุงานครบ 5 ปี จำนวน 3 ท่าน ได้แก่
+- คุณศิรินารถ สุขกิจ เจ้าหน้าที่ธุรการ
+- คุณจินทภา ศรพรหม เจ้าหน้าที่บัญชี (ด้านจ่ายเจ้าหนี้)
+- คุณกมลชนก วารีอุดม เจ้าหน้าที่บัญชี (ด้านลูกหนี้)
+
+ขอเชิญทุกท่าน ถ่ายรูปรวมค่ะ
+
+ขอเรียนเชิญ พี่หน่อย กล่าวชื่นชมพนักงานค่ะ
+ขอเชิญผู้รับรางวัลทุกท่าน กล่าวความรู้สึกสั้น ๆ เกี่ยวกับการได้รับรางวัลในวันนี้
+โดยเริ่มจาก คุณเอ คุณขนมจีน และคุณทรายค่ะ`,
+        prepare: ["กราส - ใบประกาศ / ช่อดอกไม้", "พี่นนท์ และปิงปอง - รันคิวใบประกาศและช่อดอกไม้", "พี่นนท์ และปิงปอง - รันคิวซองทุนและป้าย"],
+        owners: ["กราส", "พี่นนท์", "ปิงปอง"]
+      },
+      {
+        time: "11.30 - 11.50 น.",
+        title: "พิธีมอบทุนการศึกษาแก่บุตรพนักงาน ประจำปี 2569",
+        type: "พิธีมอบทุน",
+        script: `พิธีมอบทุนการศึกษาแก่บุตรพนักงาน ประจำปี 2569 ค่ะ
+
+เชิญ พี่หญิง คุณรักชนก มีทรัพย์ CHRO
+เป็นผู้มอบทุนการศึกษา
+
+เชิญคุณแม่และบุตรรับรางวัล
+
+ลำดับที่ 1
+บุตร เด็กหญิงดารินทร์ การัญสิริกุล บุตรสาวของคุณจินทภา ศรพรหม
+ระดับชั้น ประถมศึกษาปีที่ 2
+ผลการเรียน 4.00
+
+ลำดับที่ 2
+เด็กชายจักรินทร์ จันทะคุณ บุตรชายของคุณกมลชนก วารีอุดม
+ระดับชั้น ประถมศึกษาปีที่ 3
+ผลการเรียน 77.17%
+
+กราส:
+ลำดับที่ 3
+บุตร เด็กชายนนทกร จันทร์เกษม บุตรชายของคุณอริสา ใจมา
+ระดับชั้น มัธยมศึกษาปีที่ 1
+ผลการเรียน 3.76
+
+เชิญ พี่หญิง กล่าวชื่นชมพนักงานค่ะ
+ขอเชิญคุณแม่กล่าวความรู้สึกสั้น ๆ เกี่ยวกับการได้รับทุนในวันนี้
+โดยเริ่มจาก คุณขนมจีน คุณริสา และคุณทรายค่ะ
+
+เด็ก ๆ มีอะไรจะพูดกับพี่ ๆ มั้ยคะ ขอคนละ 1 ประโยคค่ะ`,
+        prepare: ["ดอกไม้ติดอก", "เงินใส่ซอง", "ทุนประถม 5,000 บาท", "ทุนมัธยม 8,000 บาท"],
+        owners: ["กราส", "พี่นนท์", "ปิงปอง"]
+      },
+      {
+        time: "11.50 - 12.00 น.",
+        title: "ปิดงาน / ถ่ายภาพรวม",
+        type: "ปิดงาน",
+        script: `ปิดงาน
+
+เชิญถ่ายภาพรวมกัน`,
+        prepare: ["ดูความเรียบร้อยของอาหาร"],
+        owners: ["ฟลุ๊ค", "จ๋อมแจ๋ม"]
+      }
+    ];
+
+    const searchableText = (item) => [
+      item.time, item.title, item.type, item.script,
+      item.prepare.join(" "), item.owners.join(" ")
+    ].join(" ").toLowerCase();
+
+    function getFilteredData() {
+      const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+      return runSheet.filter(item => {
+        const matchKeyword = !keyword || searchableText(item).includes(keyword);
+        return matchKeyword;
+      });
+    }
+
+    function pills(items) {
+      if (!items || !items.length) return `<span class="pill">-</span>`;
+      return items.map(x => `<span class="pill">${x}</span>`).join("");
+    }
+
+    function renderDashboard(data) {
+      const keyItems = data.slice(0, 4);
+      document.getElementById("dashboardCards").innerHTML = keyItems.map(item => `
+        <article class="timeline-card">
+          <div>
+            <div class="time">${item.time}</div>
+          </div>
+          <div>
+            <span class="badge">${item.type}</span>
+            <h3>${item.title}</h3>
+            <div class="desc">${item.script}</div>
+            <div class="meta">
+              <div class="meta-box">
+                <div class="label">สิ่งที่ต้องเตรียม / บทบาททีมงาน</div>
+                <div class="value">${item.prepare.length ? item.prepare.join("\\n") : "-"}</div>
+              </div>
+              <div class="meta-box">
+                <div class="label">ผู้รับผิดชอบ</div>
+                <div class="value">${item.owners.length ? item.owners.join(", ") : "-"}</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderTimeline(data) {
+      document.getElementById("timelineCards").innerHTML = data.map(item => `
+        <article class="timeline-card">
+          <div>
+            <div class="time">${item.time}</div>
+          </div>
+          <div>
+            <span class="badge">${item.type}</span>
+            <h3>${item.title}</h3>
+            <div class="desc">${item.script}</div>
+            <div class="meta">
+              <div class="meta-box">
+                <div class="label">สิ่งที่ต้องเตรียม / บทบาททีมงาน</div>
+                <div class="value">${item.prepare.length ? item.prepare.join("\\n") : "-"}</div>
+              </div>
+              <div class="meta-box">
+                <div class="label">ผู้รับผิดชอบ</div>
+                <div class="value">${item.owners.length ? item.owners.join(", ") : "-"}</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderTable(data) {
+      document.getElementById("runSheetBody").innerHTML = data.map(item => `
+        <tr>
+          <td><strong>${item.time}</strong><br><span class="pill">${item.type}</span></td>
+          <td><strong>${item.title}</strong><br><div class="desc">${item.script}</div></td>
+          <td>${pills(item.prepare)}</td>
+        </tr>
+      `).join("");
+    }
+
+    function renderChecklist() {
+      const grouped = {};
+      runSheet.forEach(item => {
+        const group = item.type || "อื่น ๆ";
+        if (!grouped[group]) grouped[group] = [];
+        item.prepare.forEach(prepare => grouped[group].push({ time: item.time, prepare }));
+      });
+
+      document.getElementById("checklistGrid").innerHTML = Object.keys(grouped).map(group => `
+        <div class="check-card">
+          <h3>${group}</h3>
+          ${grouped[group].map(x => `
+            <label class="check-item">
+              <input type="checkbox">
+              <span><strong>${x.prepare}</strong><br><small>${x.time}</small></span>
+            </label>
+          `).join("")}
+        </div>
+      `).join("");
+    }
+
+    function populateOwnerFilter() {
+      const owners = [...new Set(runSheet.flatMap(item => item.owners))].sort();
+      document.getElementById("statSlots").textContent = runSheet.length;
+      document.getElementById("statOwners").textContent = owners.length;
+    }
+
+    function renderAll() {
+      const data = getFilteredData();
+      renderDashboard(data);
+      renderTimeline(data);
+      renderTable(data);
+      renderChecklist();
+    }
+
+    function resetFilters() {
+      document.getElementById("searchInput").value = "";
+      renderAll();
+    }
+
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".nav-btn").forEach(x => x.classList.remove("active"));
+        document.querySelectorAll(".section").forEach(x => x.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.section).classList.add("active");
+      });
+    });
+
+    document.getElementById("searchInput").addEventListener("input", renderAll);
+
+    populateOwnerFilter();
+    renderAll();
+  </script>
+</body>
+</html>
