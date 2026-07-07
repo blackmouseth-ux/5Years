@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TRP MID-YEAR HIGHLIGHTS 2026 | Web Portal</title>
+  <title>TRP MID-YEAR HIGHLIGHTS 2026 | Run Sheet Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f4f7fb;
-      --card: #ffffff;
       --navy: #10284c;
       --navy2: #173c73;
-      --blue: #1f6feb;
       --gold: #d7a945;
+      --blue: #1f6feb;
       --text: #1f2937;
       --muted: #64748b;
       --line: #e2e8f0;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+      --soft: #f8fafc;
+      --white: #ffffff;
+      --shadow: 0 16px 38px rgba(15, 23, 42, 0.09);
       --radius: 22px;
     }
 
@@ -27,22 +27,22 @@
     body {
       margin: 0;
       font-family: "Prompt", sans-serif;
+      color: var(--text);
       background:
         radial-gradient(circle at top left, rgba(215,169,69,.18), transparent 28rem),
-        linear-gradient(135deg, #f8fbff 0%, #eef4fb 48%, #f6f2e7 100%);
-      color: var(--text);
+        linear-gradient(135deg, #f8fbff 0%, #eef4fb 52%, #fbf6e8 100%);
     }
 
     .app {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 270px 1fr;
     }
 
     aside {
       background: linear-gradient(180deg, var(--navy) 0%, #06162e 100%);
       color: white;
-      padding: 26px 22px;
+      padding: 26px 20px;
       position: sticky;
       top: 0;
       height: 100vh;
@@ -50,17 +50,14 @@
     }
 
     .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
       padding: 16px 14px 24px;
       border-bottom: 1px solid rgba(255,255,255,.14);
       margin-bottom: 18px;
     }
 
-    .brand .logo {
-      width: 54px;
-      height: 54px;
+    .logo {
+      width: 56px;
+      height: 56px;
       display: grid;
       place-items: center;
       border-radius: 18px;
@@ -68,18 +65,19 @@
       color: var(--navy);
       font-size: 22px;
       font-weight: 800;
-      box-shadow: 0 14px 35px rgba(215,169,69,.25);
+      box-shadow: 0 14px 35px rgba(215,169,69,.24);
+      margin-bottom: 14px;
     }
 
     .brand h1 {
       font-size: 18px;
       line-height: 1.35;
-      margin: 8px 0 0;
+      margin: 0;
       letter-spacing: .2px;
     }
 
     .brand p {
-      margin: 0;
+      margin: 8px 0 0;
       color: rgba(255,255,255,.68);
       font-size: 13px;
     }
@@ -125,27 +123,31 @@
     .hero {
       background:
         linear-gradient(135deg, rgba(16,40,76,.96), rgba(23,60,115,.92)),
-        radial-gradient(circle at top right, rgba(215,169,69,.4), transparent 24rem);
-      color: #fff;
+        radial-gradient(circle at top right, rgba(215,169,69,.42), transparent 24rem);
+      color: white;
       border-radius: 30px;
       padding: 30px;
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
+      margin-bottom: 22px;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: 340px;
+      height: 340px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(215,169,69,.28), transparent 70%);
-      top: -120px;
+      top: -130px;
       right: -80px;
     }
 
-    .hero-content { position: relative; z-index: 2; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
 
     .eyebrow {
       display: inline-flex;
@@ -161,7 +163,7 @@
 
     .hero h2 {
       margin: 0;
-      font-size: clamp(26px, 4vw, 46px);
+      font-size: clamp(26px, 4vw, 44px);
       line-height: 1.12;
       letter-spacing: -.5px;
     }
@@ -169,7 +171,7 @@
     .hero p {
       margin: 12px 0 0;
       color: rgba(255,255,255,.78);
-      max-width: 920px;
+      max-width: 960px;
       font-size: 15px;
       line-height: 1.75;
     }
@@ -178,16 +180,18 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin: 22px 0;
+      margin-bottom: 22px;
       align-items: center;
     }
 
-    .search { flex: 1 1 280px; }
+    .search {
+      flex: 1 1 300px;
+    }
 
-    input, select {
+    input {
       width: 100%;
       border: 1px solid var(--line);
-      background: #fff;
+      background: white;
       border-radius: 16px;
       padding: 14px 16px;
       font-family: inherit;
@@ -196,7 +200,7 @@
       box-shadow: 0 8px 20px rgba(15,23,42,.04);
     }
 
-    input:focus, select:focus {
+    input:focus {
       border-color: rgba(31,111,235,.5);
       box-shadow: 0 0 0 4px rgba(31,111,235,.09);
     }
@@ -214,34 +218,10 @@
     }
 
     .btn.secondary {
-      background: #fff;
+      background: white;
       color: var(--navy);
       border: 1px solid var(--line);
       box-shadow: none;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin: 22px 0;
-    }
-
-    .stat {
-      background: rgba(255,255,255,.9);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: 0 12px 30px rgba(15,23,42,.06);
-    }
-
-    .stat small { color: var(--muted); font-size: 13px; }
-
-    .stat strong {
-      display: block;
-      margin-top: 4px;
-      font-size: 26px;
-      color: var(--navy);
     }
 
     .section {
@@ -256,17 +236,20 @@
       to { opacity: 1; transform: none; }
     }
 
-    .grid { display: grid; gap: 16px; }
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
 
     .timeline-card {
-      background: rgba(255,255,255,.94);
+      background: rgba(255,255,255,.95);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 20px;
       display: grid;
       grid-template-columns: 180px 1fr;
       gap: 18px;
-      box-shadow: 0 12px 30px rgba(15,23,42,.06);
+      box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
     }
@@ -285,6 +268,7 @@
       color: var(--navy);
       font-weight: 800;
       font-size: 17px;
+      line-height: 1.45;
     }
 
     .badge {
@@ -312,27 +296,21 @@
     }
 
     .meta {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
       margin-top: 16px;
-    }
-
-    .meta-box {
       border-radius: 16px;
-      background: #f8fafc;
+      background: var(--soft);
       border: 1px solid var(--line);
       padding: 14px;
     }
 
-    .meta-box .label {
+    .meta .label {
       color: var(--muted);
       font-size: 12px;
       margin-bottom: 8px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .meta-box .value {
+    .meta .value {
       white-space: pre-line;
       line-height: 1.65;
       font-size: 14px;
@@ -342,15 +320,15 @@
       overflow: auto;
       border-radius: var(--radius);
       border: 1px solid var(--line);
-      box-shadow: 0 12px 30px rgba(15,23,42,.06);
+      box-shadow: var(--shadow);
       background: white;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 820px;
-      background: #fff;
+      min-width: 840px;
+      background: white;
     }
 
     th, td {
@@ -363,9 +341,9 @@
     }
 
     th {
-      background: #f8fafc;
+      background: var(--soft);
       color: var(--navy);
-      font-weight: 700;
+      font-weight: 800;
       position: sticky;
       top: 0;
       z-index: 1;
@@ -385,32 +363,24 @@
       margin: 2px 4px 2px 0;
     }
 
-    .check-grid, .owner-grid {
+    .check-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .check-card, .owner-card {
+    .check-card {
       background: white;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 18px;
-      box-shadow: 0 12px 30px rgba(15,23,42,.06);
+      box-shadow: var(--shadow);
     }
 
-    .check-card h3, .owner-card h3 {
+    .check-card h3 {
       margin: 0 0 12px;
       color: var(--navy);
       font-size: 18px;
-    }
-
-    .owner-card h3 { margin-bottom: 2px; }
-
-    .owner-card p {
-      color: var(--muted);
-      margin: 4px 0 14px;
-      font-size: 13px;
     }
 
     .check-item {
@@ -422,16 +392,10 @@
       line-height: 1.55;
     }
 
-    .check-item input { width: auto; box-shadow: none; }
-
-    .owner-task {
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 11px 12px;
-      margin-top: 8px;
-      font-size: 13px;
-      line-height: 1.5;
+    .check-item input {
+      width: auto;
+      box-shadow: none;
+      margin-top: 4px;
     }
 
     .print-note {
@@ -443,27 +407,24 @@
     @media (max-width: 1000px) {
       .app { grid-template-columns: 1fr; }
       aside { position: relative; height: auto; }
-      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .timeline-card { grid-template-columns: 1fr; }
-      .check-grid, .owner-grid { grid-template-columns: 1fr; }
+      .check-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
       main { padding: 16px; }
       .hero { padding: 22px; border-radius: 24px; }
-      .stats { grid-template-columns: 1fr; }
-      .meta { grid-template-columns: 1fr; }
       aside { padding: 18px 14px; }
     }
 
     @media print {
       aside, .toolbar, .btn { display: none !important; }
       .app { display: block; }
-      body { background: #fff; }
+      body { background: white; }
       main { padding: 0; }
       .hero { box-shadow: none; border-radius: 0; }
       .section { display: block !important; page-break-before: always; }
-      .timeline-card, .stat, .check-card, .owner-card, .table-wrap { box-shadow: none; break-inside: avoid; }
+      .timeline-card, .check-card, .table-wrap { box-shadow: none; break-inside: avoid; }
     }
   </style>
 </head>
@@ -474,7 +435,7 @@
       <div class="brand">
         <div class="logo">TRP</div>
         <h1>TRP MID-YEAR<br>HIGHLIGHTS 2026</h1>
-        <p>Web Portal คิวงานละเอียด</p>
+        <p>คิวละเอียดงาน</p>
       </div>
 
       <button class="nav-btn active" data-section="timeline"><span>🕒</span>คิวงานละเอียด</button>
@@ -488,17 +449,17 @@
           <div class="eyebrow">✨ Together We Grow</div>
           <h2>คิวละเอียดงาน TRP MID-YEAR HIGHLIGHTS 2026</h2>
           <p>
-            Portal สำหรับทีมงานใช้ดูคิวงานแบบละเอียด แยกเวลา กิจกรรม สิ่งที่ต้องเตรียม และผู้รับผิดชอบ
-            เพื่อให้รันงานช่วง C-Level Talk, พิธีมอบรางวัลอายุงาน 5 ปี และพิธีมอบทุนการศึกษาเป็นไปอย่างเรียบร้อย
+            ใช้สำหรับทีมงานรันคิวงานแบบละเอียด แยกตามเวลา กิจกรรม / Script และสิ่งที่ต้องเตรียม
+            ครอบคลุมช่วงเปิดงาน, C-Level Talk, พิธีมอบรางวัลอายุงาน 5 ปี และพิธีมอบทุนการศึกษา
           </p>
         </div>
       </section>
 
       <div class="toolbar">
         <div class="search">
-          <input id="searchInput" type="search" placeholder="ค้นหาเวลา / กิจกรรม / ผู้รับผิดชอบ / สิ่งที่ต้องเตรียม..." />
+          <input id="searchInput" type="search" placeholder="ค้นหาเวลา / กิจกรรม / สิ่งที่ต้องเตรียม..." />
         </div>
-        <button class="btn secondary" onclick="resetFilters()">ล้างตัวกรอง</button>
+        <button class="btn secondary" onclick="resetFilters()">ล้างการค้นหา</button>
         <button class="btn" onclick="window.print()">พิมพ์ / Save PDF</button>
       </div>
 
@@ -511,9 +472,9 @@
           <table>
             <thead>
               <tr>
-                <th style="width: 150px;">เวลา</th>
+                <th style="width: 155px;">เวลา</th>
                 <th>กิจกรรม / Script</th>
-                <th style="width: 330px;">สิ่งที่ต้องเตรียม / บทบาททีมงาน</th>
+                <th style="width: 330px;">สิ่งที่ต้องเตรียม</th>
               </tr>
             </thead>
             <tbody id="runSheetBody"></tbody>
@@ -525,7 +486,6 @@
       <section id="checklist" class="section">
         <div class="check-grid" id="checklistGrid"></div>
       </section>
-
     </main>
   </div>
 
@@ -534,28 +494,30 @@
       {
         time: "10.00 - 10.30 น.",
         title: "ช่วงที่ 1: เปิดงาน / กล่าวต้อนรับก่อนเริ่มกิจกรรม",
-        type: "กิจกรรม Kahoot",
+        type: "เปิดงาน / Kahoot",
         script: `กิจกรรมนี้คือ “กิจกรรม รู้หรือไม่!!” ผ่าน Kahoot
 
 ขอเรียนเชิญ พี่หน่อย และ พี่หญิง ให้เกียรติขึ้นบนเวที เพื่อมอบรางวัลให้แก่ผู้ชนะกิจกรรม Kahoot`,
-        prepare: ["Kahoot", "หมอนรางวัล"],
-        owners: ["กราส"]
+        prepare: `กราส
+- Kahoot
+- หมอนรางวัล
+
+น้องเท็นเท็น และน้องกราส
+พิธีกร`
       },
       {
         time: "10.30 - 10.50 น.",
-        title: "C-Level Talk: คุณนพรัตน์ บุญจริง",
+        title: "เริ่ม C-Level Talk: คุณนพรัตน์ บุญจริง",
         type: "C-Level Talk",
-        script: `เริ่ม C-Level Talk
-
-เชิญ พี่หน่อย คุณนพรัตน์ บุญจริง
+        script: `เชิญ พี่หน่อย คุณนพรัตน์ บุญจริง
 
 ภาพรวมธุรกิจ
 พร้อมอัปเดตสถานการณ์ด้านการเงินของ TRP
 รวมถึงทิศทางขององค์กรในครึ่งปีหลัง
 เรื่องสำคัญที่อยากฝากถึงพนักงานทุกท่าน
 ว่าสิ่งใดคือสิ่งที่พวกเราควรโฟกัส`,
-        prepare: ["น้องเท็นเท็น และน้องกราส - พิธีกร", "ลูกหนู - ดูภาพรวม / ตากล้อง"],
-        owners: ["น้องเท็นเท็น", "น้องกราส", "ลูกหนู"]
+        prepare: `ลูกหนู
+ดูภาพรวม ตากล้อง`
       },
       {
         time: "10.50 - 11.10 น.",
@@ -568,19 +530,21 @@
 เพื่อสร้างการมีส่วนร่วมและความผูกพันของพนักงานในองค์กรค่ะ
 รวมถึงสิ่งที่พนักงานควรโฟกัส
 และสิ่งที่พี่หญิงอยากฝากถึงทุกท่าน`,
-        prepare: ["VDO กิจกรรม", "Training Roadmap"],
-        owners: ["ลูกหนู"]
+        prepare: `ลูกหนู
+1. VDO กิจกรรม
+2. Training Roadmap`
       },
       {
         time: "11.10 - 11.15 น.",
         title: "เปิด VDO พิธีมอบรางวัลและทุนการศึกษา",
-        type: "Transition / VDO",
+        type: "VDO / Transition",
         script: `พิธีมอบรางวัลประกาศเกียรติคุณและเชิดชูเกียรติพนักงานผู้มีอายุงาน 5 ปี ประจำปี 2568
 และพิธีมอบทุนการศึกษาแก่บุตรพนักงานค่ะ
 
 เปิด VDO`,
-        prepare: ["VDO เปิดงานรางวัล", "เสียง"],
-        owners: ["ทัศ"]
+        prepare: `ทัศ
+VDO เปิดงานรางวัล
+เสียง`
       },
       {
         time: "11.15 - 11.30 น.",
@@ -597,10 +561,16 @@
 ขอเชิญทุกท่าน ถ่ายรูปรวมค่ะ
 
 ขอเรียนเชิญ พี่หน่อย กล่าวชื่นชมพนักงานค่ะ
+
 ขอเชิญผู้รับรางวัลทุกท่าน กล่าวความรู้สึกสั้น ๆ เกี่ยวกับการได้รับรางวัลในวันนี้
 โดยเริ่มจาก คุณเอ คุณขนมจีน และคุณทรายค่ะ`,
-        prepare: ["กราส - ใบประกาศ / ช่อดอกไม้", "พี่นนท์ และปิงปอง - รันคิวใบประกาศและช่อดอกไม้", "พี่นนท์ และปิงปอง - รันคิวซองทุนและป้าย"],
-        owners: ["กราส", "พี่นนท์", "ปิงปอง"]
+        prepare: `กราส
+- ใบประกาศ
+- ช่อดอกไม้
+
+พี่นนท์ และปิงปอง
+- รันคิวใบประกาศและช่อดอกไม้
+- รันคิวซองทุนและป้าย`
       },
       {
         time: "11.30 - 11.50 น.",
@@ -630,12 +600,15 @@
 ผลการเรียน 3.76
 
 เชิญ พี่หญิง กล่าวชื่นชมพนักงานค่ะ
-ขอเชิญคุณแม่กล่าวความรู้สึกสั้น ๆ เกี่ยวกับการได้รับทุนในวันนี้
+
+ขอเชิญคุณแม่ กล่าวความรู้สึกสั้น ๆ เกี่ยวกับการได้รับทุนในวันนี้
 โดยเริ่มจาก คุณขนมจีน คุณริสา และคุณทรายค่ะ
 
 เด็ก ๆ มีอะไรจะพูดกับพี่ ๆ มั้ยคะ ขอคนละ 1 ประโยคค่ะ`,
-        prepare: ["ดอกไม้ติดอก", "เงินใส่ซอง", "ทุนประถม 5,000 บาท", "ทุนมัธยม 8,000 บาท"],
-        owners: ["กราส", "พี่นนท์", "ปิงปอง"]
+        prepare: `ดอกไม้ติดอก
+เงินใส่ซอง
+ประถม 5,000
+มัธยม 8,000`
       },
       {
         time: "11.50 - 12.00 น.",
@@ -644,27 +617,18 @@
         script: `ปิดงาน
 
 เชิญถ่ายภาพรวมกัน`,
-        prepare: ["ดูความเรียบร้อยของอาหาร"],
-        owners: ["ฟลุ๊ค", "จ๋อมแจ๋ม"]
+        prepare: `ฟลุ๊ค และจ๋อมแจ๋ม
+ดูความเรียบร้อยของอาหาร`
       }
     ];
 
-    const searchableText = (item) => [
-      item.time, item.title, item.type, item.script,
-      item.prepare.join(" "), item.owners.join(" ")
-    ].join(" ").toLowerCase();
+    function searchableText(item) {
+      return [item.time, item.title, item.type, item.script, item.prepare].join(" ").toLowerCase();
+    }
 
     function getFilteredData() {
       const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
-      return runSheet.filter(item => {
-        const matchKeyword = !keyword || searchableText(item).includes(keyword);
-        return matchKeyword;
-      });
-    }
-
-    function pills(items) {
-      if (!items || !items.length) return `<span class="pill">-</span>`;
-      return items.map(x => `<span class="pill">${x}</span>`).join("");
+      return runSheet.filter(item => !keyword || searchableText(item).includes(keyword));
     }
 
     function renderTimeline(data) {
@@ -678,14 +642,8 @@
             <h3>${item.title}</h3>
             <div class="desc">${item.script}</div>
             <div class="meta">
-              <div class="meta-box">
-                <div class="label">สิ่งที่ต้องเตรียม / บทบาททีมงาน</div>
-                <div class="value">${item.prepare.length ? item.prepare.join("\\n") : "-"}</div>
-              </div>
-              <div class="meta-box">
-                <div class="label">ผู้รับผิดชอบ</div>
-                <div class="value">${item.owners.length ? item.owners.join(", ") : "-"}</div>
-              </div>
+              <div class="label">สิ่งที่ต้องเตรียม</div>
+              <div class="value">${item.prepare || "-"}</div>
             </div>
           </div>
         </article>
@@ -697,36 +655,26 @@
         <tr>
           <td><strong>${item.time}</strong><br><span class="pill">${item.type}</span></td>
           <td><strong>${item.title}</strong><br><div class="desc">${item.script}</div></td>
-          <td>${pills(item.prepare)}</td>
+          <td><div class="desc">${item.prepare || "-"}</div></td>
         </tr>
       `).join("");
     }
 
     function renderChecklist() {
-      const grouped = {};
-      runSheet.forEach(item => {
-        const group = item.type || "อื่น ๆ";
-        if (!grouped[group]) grouped[group] = [];
-        item.prepare.forEach(prepare => grouped[group].push({ time: item.time, prepare }));
-      });
-
-      document.getElementById("checklistGrid").innerHTML = Object.keys(grouped).map(group => `
-        <div class="check-card">
-          <h3>${group}</h3>
-          ${grouped[group].map(x => `
-            <label class="check-item">
-              <input type="checkbox">
-              <span><strong>${x.prepare}</strong><br><small>${x.time}</small></span>
-            </label>
-          `).join("")}
-        </div>
-      `).join("");
-    }
-
-    function populateOwnerFilter() {
-      const owners = [...new Set(runSheet.flatMap(item => item.owners))].sort();
-      document.getElementById("statSlots").textContent = runSheet.length;
-      document.getElementById("statOwners").textContent = owners.length;
+      document.getElementById("checklistGrid").innerHTML = runSheet.map(item => {
+        const lines = item.prepare.split("\\n").filter(x => x.trim());
+        return `
+          <div class="check-card">
+            <h3>${item.time}</h3>
+            ${lines.map(line => `
+              <label class="check-item">
+                <input type="checkbox">
+                <span>${line}</span>
+              </label>
+            `).join("")}
+          </div>
+        `;
+      }).join("");
     }
 
     function renderAll() {
@@ -751,8 +699,6 @@
     });
 
     document.getElementById("searchInput").addEventListener("input", renderAll);
-
-    populateOwnerFilter();
     renderAll();
   </script>
 </body>
